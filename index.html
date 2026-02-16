@@ -27,56 +27,105 @@ body {
     padding: 20px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 400px;
+
+/* Conteneur vertical */
+.list-links {
+display: flex;
+flex-direction: column;
+gap: 18px;
 }
 
+/* UNE ligne = UNE étiquette + SON logo */
+.row-link {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+/* Étiquette à gauche */
 .tag {
-    position: relative;
-    display: block;
-    background: rgba(200, 173, 120, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 80px;
-    padding: 20px 30px;
-    text-align: center;
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: bold;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    border: 1px solid rgba(255,255,255,0.3);
+flex: 1; /* prend toute la largeur dispo */
+background: rgba(200, 173, 127, 0.85);
+border-radius: 80px;
+padding: 18px 26px;
+
+text-decoration: none;
+color: #FFFFFF;
+font-size: 18px;
+font-weight: 600;
+text-align: center;
+
+transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tag:hover {
-    transform: translateY(-4px) scale(1.02);
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.20);
+transform: translateY(-3px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 480px) {
-    .tag {
-        font-size: 12px;
-        padding: 18px 24px;
-    }
+/* Logo à droite */
+.logo-glass {
+width: 52px;
+height: 52px;
+
+border-radius: 50%;
+overflow: hidden;
+
+background: rgba(255, 255, 255, 0.35);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+
+border: 1px solid rgba(255, 255, 255, 0.6);
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.logo-glass img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+/* Hover synchronisé */
+.row-link:hover .logo-glass {
+transform: scale(1.08);
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
 </style>
 
 </head>
 
 <body>
-    <div class="container">
-        <a class="tag" href="https://app.empruntemontoutou.com/view-profile-petsitter/636d3526-c807-42db-b9cf-c2c247797329" target="_blank">
-            empreinte mon toutou 🐶
-        </a>
-        <a class="tag" href="https://www.kinougarde.com" target="_blank">
-            garde d’enfants avec Kinougarde
-        </a>
-    </div>
+  <div class="list-links">
+
+<div class="row-link">
+<a class="tag" href="https://app.empruntemontoutou.com/view-profile-petsitter/636d3526-c807-42db-b9cf-c2c247797329" target="_blank">
+Emprunte mon toutou 
+</a>
+
+<div class="logo-glass">
+<img src="https://app.empruntemontoutou.com/favicon.ico" alt="Logo emprunte mon toutou">
+</div>
+</div>
+
+<div class="row-link">
+<a class="tag" href="https://www.kinougarde.com" target="_blank">
+Garde d’enfants avec Kinougarde
+</a>
+
+<div class="logo-glass">
+<img src="https://www.kinougarde.com/favicon.ico" alt="Logo Kinougarde">
+</div>
+</div>
+
+</div>
+
+
 </body>
 
 </html>
